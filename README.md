@@ -1,5 +1,5 @@
 # Objective
-We want to automate a shell script file that allows us to organize our files in our computer so that it may be nice, neat and easy to access. 
+We want to automate a shell script file that allows us to organize our files in our computer **in our current direcotry** so that it may be nice, neat and easy to access. 
 
 In this project I will be using it to organize image file so the it may be sorted in its' proper folder but feel free to make the necessary adjustment to organize any other files besides `.jpg`
 
@@ -80,6 +80,7 @@ Then we will navigate to the directory we previously create. If it doesn't exist
 cd "Image File" || exit
 ```
 
+# Step 3
 Now we run for loops using the information retrieved from the image files of all the images. We will be using `exiftool` for this part so be sure that you've installed the proper tool. Check the **Required Installation** of you haven't done so. 
 ```bash
 # Organize file by Month and Year
@@ -110,5 +111,3 @@ done
 
 echo "All image files are done being organize!"
 ```
-
-# Automatic-File-Organizer
