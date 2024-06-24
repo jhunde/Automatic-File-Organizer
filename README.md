@@ -156,5 +156,5 @@ You can do this by do this in your terminal:
 vim ~/.bashrc
 ```
 
-Then past `alias organize = "./organize_file.sh"` into `~/.bashrc`. Once you have done that, you can now use your alais.
+Then past `alias organize = "./organize_file.sh"` into `~/.bashrc`. Once you have done that, you can now use your alias.
 Well done!
