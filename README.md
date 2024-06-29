@@ -12,7 +12,6 @@ In this project I will be using it to organize image file so the it may be sorte
 
 ```mermaid
 flowchart TD
-flowchart TD
 
 	ind[🗂️ Image Folder]-->Years
 	subgraph Years
