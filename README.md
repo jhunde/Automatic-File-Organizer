@@ -12,34 +12,36 @@ In this project I will be using it to organize image file so the it may be sorte
 
 ```mermaid
 flowchart TD
+flowchart TD
 
-	ind(Image Folder)-->Years
+	ind[🗂️ Image Folder]-->Years
 	subgraph Years
-	2022
-	2023
-	2024
+	y0[📁 2022]
+	y1[📁 2023]
+	y1[📁 2024]
 	end
 
 	Years-->Months
 	subgraph Months
-	01
-	02
-	03
-	04
-	05
-	06
-	07
-	08
-	09
-	10
-	11
-	12
+	f0[📂 01]
+	f1[📂 02] 
+	f2[📂 03]
+	f3[📂 04]
+	f4[📂 05]
+	f5[📂 06]
+	f6[📂 07]
+	f7[📂 08]
+	f8[📂 09]
+	f9[📂 10]
+	f10[📂 11]
+	f11[📂 12]
 	end
-	01-->.jpg
+
+	f0-->p0[📄 .jpg]
 	subgraph Image files would be here
-	.jpg
-	.png
-	.pdf
+	p0
+	p1[📄 .png]
+	p2[📄 .pdf]
 	end
 ```
 
