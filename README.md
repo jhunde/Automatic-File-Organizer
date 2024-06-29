@@ -146,9 +146,9 @@ alias organize = "./organize_file.sh"
 
 In order for this to work properly make sure include paths of where `organize_file.sh` and add `./organize_file.sh` at the end of it
 
-# How to run sava alias using `~/.bashrc` file
+# How to run save alias using `~/.bashrc` file
 
-Once your terminal is terminated you will no longer have access to the alias `organize`
+Once your terminal is terminated you will no longer have access to the alias `organize` command
 This is where `~/.bashrc` comes in. You will need to save the alias you wrote into the terminal.
 
 You can do this by do this in your terminal:
@@ -157,5 +157,5 @@ You can do this by do this in your terminal:
 vim ~/.bashrc
 ```
 
-Then past `alias organize = "./organize_file.sh"` into `~/.bashrc`. Once you have done that, you can now use your alias.
+Then paste `alias organize = "./organize_file.sh"` into `~/.bashrc`. Once you have done that, you can now use your alias.
 Well done!
