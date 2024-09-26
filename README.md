@@ -77,7 +77,7 @@ brew install exiftool
    - Click **OK** to close all dialog boxes.
 5. **Restart** your terminal and type `exiftool` to verify the installation.
 
-A helpful YouTube tutorial walkthrough: [How to Install Exiftool on Windows 10](https://www.youtube.com/watch?v=Ku1Nx-kl7RM)
+**A helpful YouTube tutorial walkthrough:** [How to Install Exiftool on Windows 10](https://www.youtube.com/watch?v=Ku1Nx-kl7RM)
 
 ---
 
