@@ -50,9 +50,7 @@ flowchart TD
 
 You will need to install **ExifTool**.
 
-> **ExifTool** is a free and open-source software program for reading, writing, and manipulating image, audio, video, and PDF metadata
->
->     [Reference to ExifTool Documentation](https://exiftool.org/)
+> **ExifTool** is a free and open-source software program for reading, writing, and manipulating image, audio, video, and PDF metadata [Reference to ExifTool Documentation](https://exiftool.org/)
 
 ## For Ubuntu/Debian:
 
@@ -81,7 +79,7 @@ brew install exiftool
 
 A helpful YouTube tutorial walkthrough
 
->     [ How to Install Exiftool on Windows 10](https://www.youtube.com/watch?v=Ku1Nx-kl7RM)
+- [How to Install Exiftool on Windows 10](https://www.youtube.com/watch?v=Ku1Nx-kl7RM)
 
 ---
 
