@@ -23,7 +23,7 @@ flowchart TD
 	Years-->Months
 	subgraph Months
 	f0[📂 01]
-	f1[📂 02] 
+	f1[📂 02]
 	f2[📂 03]
 	f3[📂 04]
 	f4[📂 05]
@@ -48,6 +48,12 @@ flowchart TD
 
 # **Required Installation**
 
+You will need to install **ExifTool**.
+
+> **ExifTool** is a free and open-source software program for reading, writing, and manipulating image, audio, video, and PDF metadata
+>
+>     [Reference to ExifTool Documentation](https://exiftool.org/)
+
 ## For Ubuntu/Debian:
 
 ```bash
@@ -59,6 +65,19 @@ sudo apt-get install libimage-exiftool-perl
 ```bash
 brew install exiftool
 ```
+
+## For Windows
+
+1. **Download** the appropriate `.zip` file based on your system's processor architecture
+2. **Extract** the contents of the `.zip` file
+3. **Open** the extracted folder and **rename the executable** file to `exiftool.exe`.
+4. **Add the executable to your system's PATH:**
+   - Go to the **Windows Start Menu** and search for "View Advanced System Settings"
+   - Select **Environment Variables**
+   - Under **System Variables**, double click to select `Path` and click **Edit**.
+   - Click **New**, then paste the directory path of the renamed `exiftool.exe` file.
+   - Click **OK** to close all dialog boxes.
+5. **Restart** your terminal and type `exiftool` to verify the installation.
 
 ---
 
@@ -127,6 +146,16 @@ done
 
 echo "All image files are done being organize!"
 ```
+
+# Permission
+
+> You will need to grant permission to run the `organize_file.sh` file correctly
+
+1. Open a terminal
+   - You will need to right click terminal and \*_Run as an administrator_
+2. Change directory into the location where `organized_file.sh` is saved
+   - Remember this is the directory that will be organized
+3. chmod +x sort.sh
 
 # How to run file in terminal
 
