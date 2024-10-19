@@ -50,9 +50,10 @@ flowchart TD
 
 You will need to install **ExifTool**.
 
-> [!info] Note
+> **Note**:
 >
-> **ExifTool** is a free and open-source software program for reading, writing, and manipulating image, audio, video, and PDF metadata [Reference to ExifTool Documentation](https://exiftool.org/)
+> **ExifTool** is a free and open-source software program for reading, writing, and manipulating image, audio, video, and PDF metadata.
+> [Reference to ExifTool Documentation](https://exiftool.org/)
 
 ## For Ubuntu/Debian:
 
