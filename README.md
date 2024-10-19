@@ -155,10 +155,20 @@ echo "All image files are done being organize!"
 > You will need to grant permission to run the `organize_file.sh` file correctly
 
 1. Open a terminal
-   - You will need to right click terminal and \*_Run as an administrator_
+   - You will need to right click terminal and **_Run as an administrator_**
 2. Change directory into the location where `organized_file.sh` is saved
    - Remember this is the directory that will be organized
-3. chmod +x sort.sh
+3. `chmod +x sort.sh`
+
+> **Note:** If you're using Window's OS `chmod +x sort.sh` will not work
+>
+> Instead, use the following:
+>
+> - Open the locations of your `sort.sh` file
+> - Right-click on the file
+> - Select **Propertices**
+> - Go to the **Security tab**
+> - Here, you can manage file permissions for different users and groups by clicking **edit**
 
 # How to run file in terminal
 
