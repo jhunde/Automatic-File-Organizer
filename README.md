@@ -41,6 +41,8 @@ flowchart TD
 	p0
 	p1[📄 .png]
 	p2[📄 .pdf]
+    p2[📄 .gif]
+    p2[📄 .svg]
 	end
 ```
 
@@ -50,9 +52,9 @@ flowchart TD
 
 You will need to install **ExifTool**.
 
-> **Note**:
->
+> ***Note***:
 > **ExifTool** is a free and open-source software program for reading, writing, and manipulating image, audio, video, and PDF metadata.
+>
 > [Reference to ExifTool Documentation](https://exiftool.org/)
 
 ## For Ubuntu/Debian:
@@ -101,19 +103,34 @@ In your `organize_file.sh` file include the a shebang `#!/bin/bash` because this
 We create a `Image Folder` were we would store all of our `.jpge` (but of course as mentioned previously feel free to include other image file extensions like `.pdf`, `.png`,`.gif`, etc.).
 
 ```bash
-mkdir "Image Folder"
+folder_dir="Image Folder"   # Folder name
+
+# Create an Image folder 
+# If folder already exist don't create it, else create it 
+if [[ -d "$folder_dir" ]]; then
+    echo "This '$folder_dir' already exist so, we're appending to it! 😉"
+else
+    mkdir "$folder_dir"
+    echo "Folder is create! 🙌"
+fi
 ```
 
-Let's move all of our `.jpg` files into to the `Image Folder`.
+Let's move **all** of our files into to the `Image Folder`.
 
 ```bash
-mv *.jpg "Image Folder"
+for file in *; do 
+    # If file exist and it's not a ".sh" file, then move file into Image Folder
+    if [[ -f "$file" && "$file" != *.sh ]]; then
+        mv "$file" "$folder_dir"
+    fi
+done
 ```
 
 Then we will navigate to the directory we previously create. If it doesn't exist then we will exit.
 
 ```bash
-cd "Image File" || exit
+cd "$folder_dir"        
+echo "Currenly inside '$folder_dir' 👀"
 ```
 
 # Step 3
@@ -121,33 +138,32 @@ cd "Image File" || exit
 Now we run for loops using the information retrieved from the image files of all the images. We will be using `exiftool` for this part so be sure that you've installed the proper tool. Check the **Required Installation** of you haven't done so.
 
 ```bash
+echo "Began organizing file, please be patient"
 # Organize file by Month and Year
-for file in *.jpg; do
+for file in *; do
+    if [[ -f "$file" ]]; then
+        # Get the year and month from EXIF data
+        year=$(exiftool -d "%Y" -DateTimeOriginal -S -s "$file")
+        month=$(exiftool -d "%m" -DateTimeOriginal -S -s "$file")
+        
+        # If EXIF data is not available, fallback to file modification date
+        if [[ -z "$year" ]]; then
+            year=$(stat -c %y "$file" | cut -d'-' -f1)
+        fi
 
-    if [[ -f "$file" ]]; then
-        # Get the year and month from EXIF data
-        year=$(exiftool -d "%Y" -DateTimeOriginal -S -s "$file")
-        month=$(exiftool -d "%m" -DateTimeOriginal -S -s "$file")
-
-        # If EXIF data is not available, fallback to file modification date
-        if [[ -z "$year" ]]; then
-            year=$(stat -c %y "$file" | cut -d'-' -f1)
-        fi
-
-        if [[ -z "$month" ]]; then
-            month=$(stat -c %y "$file" | cut -d'-' -f2)
-        fi
-
-        # Create directories for the year and month if they don't exist
-        mkdir -p "$year/$month"
-
-        # Move files to the appropriate directories
-        mv "$file" "$year/$month"
-    fi
-
+        if [[ -z "$month" ]]; then
+            month=$(stat -c %y "$file" | cut -d'-' -f2)
+        fi
+        # Create directories for the year and month if they don't exist
+        mkdir -p "$year/$month"
+        
+        # Move files to the appropriate directories
+        mv "$file" "$year/$month" 
+    fi
 done
 
-echo "All image files are done being organize!"
+# Run loading screen in parallel while task is executing
+echo "All image files are done being organize! 🎉"
 ```
 
 # Permission
@@ -160,10 +176,10 @@ echo "All image files are done being organize!"
    - Remember this is the directory that will be organized
 3. `chmod +x sort.sh`
 
-> **Note:** If you're using Window's OS `chmod +x sort.sh` will not work
+> ***Note:*** If you're using Window's OS `chmod +x sort.sh` will not work
 >
 > Instead, use the following:
->
+> 
 > - Open the locations of your `sort.sh` file
 > - Right-click on the file
 > - Select **Propertices**
@@ -175,7 +191,7 @@ echo "All image files are done being organize!"
 To run code within the terminal, `cd` into the folder where `orgainze.sh` is located and then run:
 
 ```bash
-./orgainze.sh
+./orgainze.sh    # Remeber to include './' at the beginning
 ```
 
 # How to run file using alias
