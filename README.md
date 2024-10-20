@@ -41,8 +41,8 @@ flowchart TD
 	p0
 	p1[📄 .png]
 	p2[📄 .pdf]
-    p2[📄 .gif]
-    p2[📄 .svg]
+    p3[📄 .gif]
+    p4[📄 .svg]
 	end
 ```
 
