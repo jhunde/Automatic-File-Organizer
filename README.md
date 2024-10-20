@@ -191,7 +191,8 @@ echo "All image files are done being organize! 🎉"
 To run code within the terminal, `cd` into the folder where `orgainze.sh` is located and then run:
 
 ```bash
-./orgainze.sh    # Remeber to include './' at the beginning
+# Remeber to include './' at the beginning of the following code
+./orgainze.sh    
 ```
 
 # How to run file using alias
