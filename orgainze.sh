@@ -7,7 +7,7 @@ if [[ -d "$folder_dir" ]]; then
     echo "This '$folder_dir' already exist so, we're appending to it! 😉"
 else
     mkdir "$folder_dir"
-    echo "Folder is create! 🙌"
+    echo "Folder is created! 🙌"
 fi
 
 # Move ALL of the file into Image Folder except ".sh" file
