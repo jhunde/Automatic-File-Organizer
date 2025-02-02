@@ -64,7 +64,7 @@ sudo apt-get install libimage-exiftool-perl
 ```
 
 ## For MacOS (using Homebrew):
-
+> **Note:** You first need be sure you have Homebrew installed, if not follow the [instracutions here](#install-homebrew)
 ```bash
 brew install exiftool
 ```
@@ -174,13 +174,16 @@ echo "All image files are done being organize! 🎉"
    - You will need to right click terminal and **_Run as an administrator_**
 2. Change directory into the location where `organized_file.sh` is saved
    - Remember this is the directory that will be organized
-3. `chmod +x sort.sh`
+3. Allow user to execute script file
+   ```sh
+   chmod u+x organize_file.sh
+   ```
 
-> ***Note:*** If you're using Window's OS `chmod +x sort.sh` will not work
+> ***Note:*** If you're using Window's OS `chmod +x organize_file.sh` will not work
 >
 > Instead, use the following:
 > 
-> - Open the locations of your `sort.sh` file
+> - Open the locations of your `organize_file.sh` file
 > - Right-click on the file
 > - Select **Propertices**
 > - Go to the **Security tab**
@@ -188,11 +191,11 @@ echo "All image files are done being organize! 🎉"
 
 # How to run file in terminal
 
-To run code within the terminal, `cd` into the folder where `orgainze.sh` is located and then run:
+To run code within the terminal, `cd` into the folder where `organize_file.sh` is located and then run:
 
 ```bash
 # Remeber to include './' at the beginning of the following code
-./orgainze.sh    
+./organize_file.sh    
 ```
 
 # How to run file using alias
@@ -218,3 +221,69 @@ vim ~/.bashrc
 
 Then paste `alias organize = "./organize_file.sh"` into `~/.bashrc`. Once you have done that, you can now use your alias.
 Well done!
+
+# Troubleshooting 
+## <a name="Install-Homebrew"></a>Install Homebrew 
+>**Note:** I will be using the terminal to install. For more information refere to [the Homebrew webpage](https://brew.sh/)
+
+1. Open the Terminal
+2. Copy and paste the following to your terminal
+   ```zsh
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+3. Enter your password
+4. Follow the instructions
+5. Wait for installation 
+6. Verify installation
+   ```zsh
+   # check installation and version 
+   brew -v
+   brew --version
+   ```
+7. Turn off Analytics (Optional)
+   ```zsh
+   # check the status of your analytics 
+   brew analytics
+
+   # disable analystics 
+   brew analytics off
+   ```
+
+8. Check if it's installed 
+   ```zsh
+   # show directory
+   which brew       
+
+   # Chech the version
+   brew -v
+   brew --version
+   ```
+
+For more detailed steps and information about this process refere to [this](https://builtin.com/articles/install-homebrew).
+
+## Trouble running the script file 
+> **Note** If you're using **macOS** you may run into an issue when you can't run your script file. 
+
+**Error:**
+  ```bash
+  Bash script – "/bin/bash^M: bad interpreter: No such file or directory" [duplicate]
+  ```
+
+
+I wrote this script and saved the file in **Windows** so your might run into `\r\n` issues
+   + `\r` = CR (Carriage Return) → Used as a new line character in **Mac OS** before **X**
+   + `\n` = LF (Line Feed) → Used as a new line character in **Unix/Mac OS X**
+   + `\r\n` = CR + LF → Used as a new line character in **Windows**
+
+Essentially, the problems is when you edit a file in **Windows**, **Windows** will add <u>`\r` to the end of the lines</u> and that <u>will break your scripts</u>. For more information on this read [this post](https://askubuntu.com/questions/1148263/r-added-end-of-the-script-command).
+
+So, remove the `\r`:
+```zsh
+sed -i 's/\r//g' organize_file.sh       
+```
+
+This should resolve your issue, and you can now simply run the script file in your Terminal and be good to go! 
+```zsh
+# run this in your terminal
+./organize_file.sh
+```
